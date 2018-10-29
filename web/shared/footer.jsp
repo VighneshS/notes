@@ -16,11 +16,11 @@
 
             </div>
             <br>
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">2018 Copyright:
-        <a href="https://google.com"> Notes.com</a>
-    </div>
-    <!-- Copyright -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">2018 Copyright:
+                <a href="https://google.com"> Notes.com</a>
+            </div>
+            <!-- Copyright -->
 
 </footer>
 <!-- Footer -->

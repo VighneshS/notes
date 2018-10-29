@@ -1,4 +1,4 @@
-<%@ page import="com.notes.model.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: jeeva
   Date: 29-10-2018
@@ -11,14 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<%
-    User user = (User) session.getAttribute("user");
-    if (user != null) {
-    response.sendRedirect("home.jsp");
-}
-%>
 <header>
-    <%@include file="shared/header.jsp"%>
+    <%@include file="shared/header.jsp" %>
 </header>
 
 <article>
@@ -27,25 +21,28 @@
         <div class="form-group">
             <label class="col-md-2 custom-control-label">Email: </label>
             <div class="col-md-4">
-                <input type="email" placeholder="Enter your email" class="form-control" name="emailId" required="required"/>
+                <input type="email" placeholder="Enter your email" class="form-control" name="emailId"
+                       required="required"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 custom-control-label">Password: </label>
             <div class="col-md-4">
-                <input type="password" placeholder="Enter your password" class="form-control" name="password" required="required"/>
+                <input type="password" placeholder="Enter your password" class="form-control" name="password"
+                       required="required"/>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-4 col-md-offset-2">
-                <input type="submit" title="Click here to Log In" name="loginBTN" value="Log In" class="btn btn-primary">
+                <input type="submit" title="Click here to Log In" name="loginBTN" value="Log In"
+                       class="btn btn-primary">
             </div>
         </div>
     </form>
 </article>
 
 <footer>
-    <%@include file="shared/footer.jsp"%>
+    <%@include file="shared/footer.jsp" %>
 </footer>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
 <%--
   Created by IntelliJ IDEA.
   User: jeeva
@@ -30,6 +30,7 @@
     }
 
     Connection connection;
+
     private boolean createUser(String userName, String password, String emailId) {
         try {
             String query = "insert into users (USER_NAME, EMAIL_ID, PASSWORD) values (?,?,?)";
@@ -58,9 +59,9 @@
 %>
 
 <%
-            boolean isRegistered = registerUser(userName, password, emailId);
+    boolean isRegistered = registerUser(userName, password, emailId);
 
-            if (isRegistered) {
+    if (isRegistered) {
 
 %>
 <span style="font-size: 172%; color: green; ">
@@ -69,8 +70,8 @@
 %>
 </span>
 <%
-            } else {
-                %>
+} else {
+%>
 <span style="font-size: 172%; color: red; ">
 <%
     out.println("Problem creating user. User may already be registered with us.");
@@ -81,8 +82,8 @@
 %>
 <span style="font-size: 172%; color: red; ">
     <%
-                e.printStackTrace();
-            out.println("Failed to connect with DB");
+        e.printStackTrace();
+        out.println("Failed to connect with DB");
     %>
 </span>
 <%

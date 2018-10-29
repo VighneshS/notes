@@ -38,7 +38,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean checkIfUserAlreadyExists(User user) throws SQLException {
-        String query = "select if (EXISTS(select u.ID from users u where u.EMAIL_ID=?),1 ,0)";
+        String query = "SELECT if (EXISTS(SELECT u.ID FROM users u WHERE u.EMAIL_ID=?),1 ,0)";
         PreparedStatement preparedStatement = getConnection().prepareStatement(query);
         preparedStatement.setString(1, user.getEmailId());
         ResultSet result = preparedStatement.executeQuery();
@@ -48,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean registerUser(User user) throws SQLException {
-        String query = "insert into users (USER_NAME, EMAIL_ID, PASSWORD) values (?,?,?)";
+        String query = "INSERT INTO users (USER_NAME, EMAIL_ID, PASSWORD) VALUES (?,?,?)";
         PreparedStatement preparedStatement = getConnection().prepareStatement(query);
         preparedStatement.setString(1, user.getUserName());
         preparedStatement.setString(2, user.getEmailId());
@@ -59,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User authenticateUser(User user) throws SQLException {
         User authUser = new User();
-        String query = "select u.ID id, u.USER_NAME userName, u.EMAIL_ID emailId, u.PASSWORD password from users u where u.EMAIL_ID=? and u.PASSWORD=?";
+        String query = "SELECT u.ID id, u.USER_NAME userName, u.EMAIL_ID emailId, u.PASSWORD password FROM users u WHERE u.EMAIL_ID=? AND u.PASSWORD=?";
         PreparedStatement preparedStatement = getConnection().prepareStatement(query);
         preparedStatement.setString(1, user.getEmailId());
         preparedStatement.setString(2, user.getPassword());

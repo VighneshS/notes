@@ -1,4 +1,4 @@
-<%@ page import="com.notes.model.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: jeeva
   Date: 30-10-2018
@@ -17,8 +17,9 @@
         response.sendRedirect("login.jsp");
     }
 %>
-<%@include file="shared/header.jsp"%>
-    <h1>My Name is <%= user.getUserName() %> </h1>
-<%@include file="shared/footer.jsp"%>
+<%@include file="shared/header.jsp" %>
+<h1>My Name is <%= user != null ? user.getUserName() : "User doesn't exist" %>
+</h1>
+<%@include file="shared/footer.jsp" %>
 </body>
 </html>

@@ -1,11 +1,9 @@
 package com.notes.controller.user;
 
-import com.google.gson.Gson;
 import com.notes.model.User;
 import com.notes.service.UserService;
 import com.notes.service.impl.UserServiceImpl;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "UserAuthServlet",
-            urlPatterns = "/user/authenticate")
-public class UserAuthServlet extends HttpServlet{
+        urlPatterns = "/user/authenticate")
+public class UserAuthServlet extends HttpServlet {
     private UserService userService;
 
     public UserService getUserService() {
