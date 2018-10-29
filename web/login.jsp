@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.notes.model.User" %><%--
   Created by IntelliJ IDEA.
   User: jeeva
   Date: 29-10-2018
@@ -11,13 +11,19 @@
     <title>Title</title>
 </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null) {
+    response.sendRedirect("home.jsp");
+}
+%>
 <header>
     <%@include file="shared/header.jsp"%>
 </header>
 
 <article>
-    <h1>Register</h1>
-    <form name="registrationForm" class="form-horizontal" action="registerUser.jsp" method="post">
+    <h1>Login</h1>
+    <form name="registrationForm" class="form-horizontal" action="/user/authenticate" method="post">
         <div class="form-group">
             <label class="col-md-2 custom-control-label">Email: </label>
             <div class="col-md-4">

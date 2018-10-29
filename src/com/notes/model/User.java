@@ -47,4 +47,8 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    public boolean isValidUserDataForLogin() {
+        return this.emailId != null && this.password != null;
+    }
 }

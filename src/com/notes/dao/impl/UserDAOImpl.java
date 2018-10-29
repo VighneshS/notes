@@ -57,13 +57,21 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean authenticateUser(User user) throws SQLException {
-        String query = "select if (EXISTS(select u.ID from users u where u.EMAIL_ID=? and u.PASSWORD=?),1 ,0)";
+    public User authenticateUser(User user) throws SQLException {
+        User authUser = new User();
+        String query = "select u.ID id, u.USER_NAME userName, u.EMAIL_ID emailId, u.PASSWORD password from users u where u.EMAIL_ID=? and u.PASSWORD=?";
         PreparedStatement preparedStatement = getConnection().prepareStatement(query);
-        preparedStatement.setString(1, user.getUserName());
+        preparedStatement.setString(1, user.getEmailId());
         preparedStatement.setString(2, user.getPassword());
         ResultSet result = preparedStatement.executeQuery();
-        result.first();
-        return result.getBoolean(1);
+        result.last();
+        if (result.getRow() != 0 || result.getRow() == 1) {
+            authUser.setId(result.getLong("id"));
+            authUser.setUserName(result.getString("userName"));
+            authUser.setEmailId(result.getString("emailId"));
+            authUser.setPassword(result.getString("password"));
+            return authUser;
+        }
+        return null;
     }
 }

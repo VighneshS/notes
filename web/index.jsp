@@ -1,5 +1,6 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Connection" %>
+<%@ page import="com.notes.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -8,6 +9,12 @@
       <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
+  <%
+      User user = (User) session.getAttribute("user");
+      if (user != null) {
+          response.sendRedirect("home.jsp");
+      }
+  %>
   <div class="container">
       <header>
         <%@include file="shared/header.jsp"%>
@@ -16,6 +23,8 @@
       <div>
           <%--<h5>No notes available. Try to <a href="login.jsp">Log In</a>
               to retrieve your notes or <a href="register.jsp">Register</a> to create your own account</h5>--%>
+          <a href="login.jsp">Log In</a>
+              <br>
           <a href="register.jsp">Register</a>
       </div>
 
@@ -30,7 +39,9 @@
 
           try {
           Class.forName(driverClass).newInstance();
-          connection = DriverManager.getConnection(url, dbUserName, dbPassword);
+          if (connection == null) {
+            connection = DriverManager.getConnection(url, dbUserName, dbPassword);
+          }
 
           if (!connection.isClosed()) {
       %>

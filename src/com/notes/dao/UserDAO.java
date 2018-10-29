@@ -9,5 +9,5 @@ public interface UserDAO {
 
     boolean registerUser(User user) throws SQLException;
 
-    boolean authenticateUser(User user) throws SQLException;
+    User authenticateUser(User user) throws SQLException;
 }

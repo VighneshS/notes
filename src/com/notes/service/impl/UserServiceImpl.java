@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean doAuthenticateUser(User user) throws SQLException {
+    public User doAuthenticateUser(User user) throws SQLException {
         return userDAO.authenticateUser(user);
     }
 
