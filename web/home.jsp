@@ -8,17 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
     <title>Home</title>
 </head>
 <body>
+<%@include file="shared/header.jsp" %>
 <%
-    User user = (User) session.getAttribute("user");
     if (user == null) {
         response.sendRedirect("login.jsp");
-    }
+}
 %>
-<%@include file="shared/header.jsp" %>
-<h1>My Name is <%= user != null ? user.getUserName() : "User doesn't exist" %>
+<h1>Welcome <%= user != null ? user.getUserName() : "User doesn't exist" %>
 </h1>
 <%@include file="shared/footer.jsp" %>
 </body>

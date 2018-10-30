@@ -38,13 +38,16 @@ public class UserAuthServlet extends HttpServlet {
         if (user.isValidUserDataForLogin()) {
             try {
                 user = getUserService().doAuthenticateUser(user);
-                req.getSession().setAttribute("user", user);
-                req.getRequestDispatcher("/home.jsp").forward(req, resp);
+                if (user != null) {
+                    req.getSession().setAttribute("user", user);
+                    resp.sendRedirect("/home.jsp");
+                } else {
+                    resp.sendRedirect("/login.jsp");
+                }
             } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
-                resp.sendRedirect("login.jsp");
+                resp.sendRedirect("/login.jsp");
             }
         }
-        resp.setStatus(200);
     }
 }
