@@ -13,8 +13,8 @@
     if (user != null) {
 %>
 <form action="${pageContext.request.contextPath}/user/logout" method="post">
-    <input class="btn btn-link btn-logout" type="submit" value="Logout" />
+    <input class="btn btn-link btn-logout" type="submit" value="Logout"/>
 </form>
 <%
-        }
+    }
 %>

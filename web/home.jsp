@@ -17,7 +17,7 @@
 <%
     if (user == null) {
         response.sendRedirect("login.jsp");
-}
+    }
 %>
 <h1>Welcome <%= user != null ? user.getUserName() : "User doesn't exist" %>
 </h1>

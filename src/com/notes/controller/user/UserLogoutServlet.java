@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @WebServlet(name = "UserLogoutServlet",
         urlPatterns = "/user/logout")
-public class UserLogoutServlet extends HttpServlet{
+public class UserLogoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().invalidate();

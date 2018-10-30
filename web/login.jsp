@@ -20,7 +20,8 @@
 
     <article>
         <h1>Login</h1>
-        <form name="registrationForm" class="form-horizontal" action="${pageContext.request.contextPath}/user/authenticate" method="post">
+        <form name="registrationForm" class="form-horizontal"
+              action="${pageContext.request.contextPath}/user/authenticate" method="post">
             <div class="form-group">
                 <label class="col-md-2 custom-control-label">Email: </label>
                 <div class="col-md-4">
