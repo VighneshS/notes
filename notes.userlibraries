@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="gson-2.8.5">
+    <archive path="D:/Softwares/gson-2.8.5.jar" />
+  </library>
+  <library name="mysql-connector-java-6.0.6">
+    <archive path="D:/Softwares/mysql-connector-java-6.0.6.jar" />
+  </library>
+</eclipse-userlibraries>
+
